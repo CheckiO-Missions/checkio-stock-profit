@@ -11,26 +11,53 @@ Each test is a dict with
 TESTS = {
     "Basics": [
         {
-            "input": [3, 2],
-            "answer": 5,
-            "explanation": "3+2=?"
+            "input": [[2, 3, 4, 5]],
+            "answer": 3,
+            "explanation": "Buy for $2, Sell for $5"
         },
         {
-            "input": [5, 7],
-            "answer": 12,
-            "explanation": "5+7=?"
+            "input": [[3,1,3,4,5,1]],
+            "answer": 4,
+            "explanation": "Buy for $1, Sell for $5"
+        },
+        {
+            "input": [[4,3,2,1]],
+            "answer": 0,
+            "explanation": "It is impossible to get profit."
+        },
+        {
+            "input": [[6, 2, 1, 2, 3, 2, 3, 4, 5, 4, ]],
+            "answer": 4,
+            "explanation": "Buy for $1, Sell for $5"
+        },
+        {
+            "input": [[1, 1, 1, 2, 1, 1, 1 ]],
+            "answer": 1,
+            "explanation": "Buy for $1, Sell for $2"
+        },
+        {
+            "input": [[4,3,2,1, 2, 1, 2, 1]],
+            "answer": 1,
+            "explanation": "Buy for $1, Sell for $2"
+        },
+        {
+            "input": [[1, 1, 1, 1]],
+            "answer": 0,
+            "explanation": "It is impossible to get profit. Price doesn't move"
         }
     ],
     "Extra": [
         {
-            "input": [6, 3],
-            "answer": 9,
-            "explanation": "6+3=?"
+            "input": [[22, 10, 4, 4, 1]],
+            "answer": 0,
         },
         {
-            "input": [6, 7],
-            "answer": 13,
-            "explanation": "6+7=?"
-        }
+            "input": [[80, 70, 10, 3, 7]],
+            "answer": 4,
+        },
+        {
+            "input": [[60, 50, 51, 52, 40]],
+            "answer": 2,
+        },
     ]
 }

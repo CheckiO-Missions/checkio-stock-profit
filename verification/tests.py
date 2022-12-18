@@ -16,12 +16,12 @@ TESTS = {
             "explanation": "Buy for $2, Sell for $5"
         },
         {
-            "input": [[3,1,3,4,5,1]],
+            "input": [[3, 1, 3, 4, 5, 1]],
             "answer": 4,
             "explanation": "Buy for $1, Sell for $5"
         },
         {
-            "input": [[4,3,2,1]],
+            "input": [[4, 3, 2, 1]],
             "answer": 0,
             "explanation": "It is impossible to get profit."
         },
@@ -36,7 +36,7 @@ TESTS = {
             "explanation": "Buy for $1, Sell for $2"
         },
         {
-            "input": [[4,3,2,1, 2, 1, 2, 1]],
+            "input": [[4, 3, 2, 1, 2, 1, 2, 1]],
             "answer": 1,
             "explanation": "Buy for $1, Sell for $2"
         },
@@ -44,7 +44,7 @@ TESTS = {
             "input": [[1, 1, 1, 1]],
             "answer": 0,
             "explanation": "It is impossible to get profit. Price doesn't move"
-        }
+        },
     ],
     "Extra": [
         {

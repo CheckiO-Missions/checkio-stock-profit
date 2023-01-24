@@ -1,17 +1,17 @@
 <body data-author="freeman_lex">
 <div class="question-answer">
     <div class="question">
-        <i>I have no idea how to start solving this mission.</i>
+        <p>I have no idea how to start solving this mission.</p>
     </div>
     <div class="answer">
         <p>
-            💡 The idea is the following: to calculate every possible profit in the list and take the biggest by comparing them. Every price except the last one should be checked as buy price (if you by with last price, your can't sell). For each particular buy price, every price after it should be checked as sell price.
+            💡 The idea is the following: to calculate every profit you could make with the list data and take the biggest by comparing them. Every price except the last one should be checked as buy price (if you by with last price, your can't sell). For each particular buy price, every price after it should be checked as sell price.
         </p>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        <i>Ok, what should I start from?</i>
+        <p>Ok, what should I start from?</p>
     </div>
     <div class="answer">
         <p>
@@ -32,9 +32,9 @@ return prof
 </div>
 <div class="question-answer">
     <div class="question">
-        <i>
+        <p>
             After these preparations, what to do next?
-        </i>
+        </p>
     </div>
     <div class="answer">
         <p>
@@ -63,9 +63,9 @@ return prof
 </div>
 <div class="question-answer">
     <div class="question">
-        <i>
+        <p>
             How to get the sell price?
-        </i>
+        </p>
     </div>
     <div class="answer">
         <p>
@@ -83,9 +83,9 @@ return prof
 </div>
 <div class="question-answer">
     <div class="question">
-        <i>
+        <p>
             Ok, how to find current profit and compare it with the value of <b class="code">prof</b>?
-        </i>
+        </p>
     </div>
     <div class="answer">
         <p>
@@ -104,7 +104,7 @@ prof = max(prof, stock[s_ind] - stock[b_ind])
 </div>
 <div class="question-answer">
     <div class="question">
-        <i>So, how my final solution should look like?</i>
+        <p>So, how my final solution should look like?</p>
     </div>
     <div class="answer">
         <p>
@@ -126,8 +126,8 @@ def stock_profit(stock: list[int]) -> int:
 </div>
 <div class="question-answer">
     <div class="question">
-        <i>Show me more solutions!<br />
-        'Cause I wanna be a real 🥇 Python Ninnjaa!</i>
+        <p>Show me more solutions!<br />
+        'Cause I wanna be a real 🥇 Python Ninnjaa!</p>
     </div>
     <div class="answer">
         <p>Sure, grab it!</p>
@@ -156,7 +156,7 @@ stock_profit = lambda s: max([s[i] - min(s[:i]) for i in range(1, len(s))] + [0]
 </div>
 <div class="question-answer">
     <div class="question">
-        <i>Thanks! I know and understand more now! Everything works fine!</i>
+        <p>Thanks! I know and understand more now! Everything works fine!</p>
     </div>
     <div class="answer">
         👍 Glad to hear it!

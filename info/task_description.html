@@ -4,26 +4,20 @@
     You are a broker with a single chance to buy stock and sell stock. Having an array of prices, pick the best time to buy stock and sell stock to maximize the profit.
 </p>
 
-<p>“short-selling” (sell first, buy later) is not allowed in this market.</p>
-
-<p>
-    <i>Your profit is zero when it is impossible to get profit at all. The size of pricing can't be less than 2.</i>
-</p>
-
 <!-- Explain input and output values -->
 <p>
-    <strong>Input: </strong> Array of int. Stock prices.
+    <strong>Input:</strong> {% if is_js %}Array of numbers{% else %}List of integers{% endif %}. Stock prices.
 </p>
 
 <p>
-    <strong>Output: </strong> Int. Maximum possible profit.
+    <strong>Output:</strong> {% if is_js %}Number{% else %}Integer{% endif %}. Maximum possible profit.
 </p>
 
 
 <!-- Give some usage examples -->
 <div class="for_info_only">
     <p>
-        <strong>Example:</strong>
+        <strong>Examples:</strong>
     </p>
 
 <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
@@ -32,6 +26,11 @@
 <!-- Here you can explain some constraints for input-->
 <!-- The section is optional -->
 <p>
-    <strong>Precondition:</strong>
-    <i>0 <= price <= 1000</i>
+    <strong>Preconditions:</strong>
+    <ul>
+        <li><i>your profit is zero when it is impossible to get profit at all;</i></li>
+        <li><i>the size of pricing can't be less than 2;</i></li>
+        <li><i>“short-selling” (sell first, buy later) is not allowed in this market;</i></li>
+        <li><i>0 <= price <= 1000.</i></li>
+    </ul>
 </p>

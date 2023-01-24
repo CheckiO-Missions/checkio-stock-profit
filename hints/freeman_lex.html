@@ -1,0 +1,165 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <i>I have no idea how to start solving this mission.</i>
+    </div>
+    <div class="answer">
+        <p>
+            💡 The idea is the following: to calculate every possible profit in the list and take the biggest by comparing them. Every price except the last one should be checked as buy price (if you by with last price, your can't sell). For each particular buy price, every price after it should be checked as sell price.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Ok, what should I start from?</i>
+    </div>
+    <div class="answer">
+        <p>
+            Let's define the variable <b class="code">prof</b> for the biggest possible profit with the initial value <b class="code">0</b>. Your function should return it at the end.
+        </p>
+        <p>
+            Your also need the number of prices in the <b class="code">stock</b>. Find the length of the list with its <a target="_blank" href="https://www.w3schools.com/python/gloss_python_list_length.asp">len()</a> function.
+        </p>
+        <pre class="brush: python">
+prof = 0
+l = len(stock)
+...
+...
+...
+return prof
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>
+            After these preparations, what to do next?
+        </i>
+    </div>
+    <div class="answer">
+        <p>
+            Your need to check every price as buy price, except the last one. To get the price later by its index <b class="code">b_ind</b> in the <b class="code">stock</b>, you should iterate over the indexes, using <a target="_blank" href="https://www.w3schools.com/python/python_for_loops.asp">for loop</a>.  
+        </p>
+        <pre class="brush: python">
+prof = 0
+l = len(stock)
+for b_ind in ...
+...
+...
+return prof
+        </pre>
+        <p>
+            To generate these indexes, use built-in <a target="_blank" href="https://www.w3schools.com/python/ref_func_range.asp">range()</a> function with the stop position as <b class="code">l - 1</b>, since you don't need the last price be used as buy price. 
+        </p>
+        <pre class="brush: python">
+prof = 0
+l = len(stock)
+for b_ind in range(l - 1):
+...
+...
+return prof    
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>
+            How to get the sell price?
+        </i>
+    </div>
+    <div class="answer">
+        <p>
+            To generate <b class="code">s_ind</b> indexes for sell price you also need <b class="code">for</b> loop with the <b class="code">range()</b> function. This should be done for each buy price index <b class="code">b_ind</b>, so use nested loop.  The start of the range should be the next after the current <b class="code">b_ind</b>, as you may sell only after buying. The end of the range in the last index.
+        </p>
+        <pre class="brush: python">
+prof = 0
+l = len(stock)
+for b_ind in range(l - 1):
+    for s_ind in range(b_ind + 1, l):
+...
+return prof    
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>
+            Ok, how to find current profit and compare it with the value of <b class="code">prof</b>?
+        </i>
+    </div>
+    <div class="answer">
+        <p>
+            Obviously, the profit is the difference between sell price and buy price. And you already have indexes to get these prices for the <b class="code">stock</b>. 
+        </p>
+        <pre class="brush: python">
+stock[s_ind] - stock[b_ind]
+        </pre>
+        <p>
+            To update variable <b class="code">prof</b> with the bigger profit you may use built-in <a target="_blank" href="https://www.w3schools.com/python/ref_func_max.asp">max()</a> function with the stored <b class="code">prof</b> value and the current calculated profit.
+        </p>
+        <pre class="brush: python">
+prof = max(prof, stock[s_ind] - stock[b_ind])
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>So, how my final solution should look like?</i>
+    </div>
+    <div class="answer">
+        <p>
+            You just need to wrap your code into function expression and use variable update expression inside the second loop.
+        </p>
+        <p>Here is the whole solution:</p>
+        <pre class="brush: python">
+def stock_profit(stock: list[int]) -> int:
+
+    prof = 0
+    l = len(stock)
+    for b_ind in range(l - 1):
+        for s_ind in range(b_ind + 1, l):
+            prof = max(prof, stock[s_ind] - stock[b_ind])
+
+    return prof
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Show me more solutions!<br />
+        'Cause I wanna be a real 🥇 Python Ninnjaa!</i>
+    </div>
+    <div class="answer">
+        <p>Sure, grab it!</p>
+        <p>
+            In this solution just one loop is used. That's because inside loop you update not only the profit, but current minimum price also (which is your buy price).
+        </p>
+        <pre class="brush: python">
+def stock_profit(stock: list[int]) -> int:
+
+    prof = 0
+    minimum = stock[0]
+    for price in stock:
+        prof = max(prof, price - minimum)
+        minimum = min(price, minimum)
+
+    return prof
+        </pre>
+        <p>
+            This one is the one-line solution, where <b class="code">lambda</b> expression (anonymous function) is used. Inside <b class="code">max()</b> function you calculate each profit as difference between current price and minimum of all previous prices.
+        </p>
+        <pre class="brush: python">
+stock_profit = lambda s: max([s[i] - min(s[:i]) for i in range(1, len(s))] + [0])
+        </pre>
+        <p><b>Click "Best solutions" at mission menu and see a lot of other interesting solutions!</b></p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Thanks! I know and understand more now! Everything works fine!</i>
+    </div>
+    <div class="answer">
+        👍 Glad to hear it!
+    </div>
+</div>
+</body>

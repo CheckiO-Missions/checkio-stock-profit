@@ -1,0 +1,36 @@
+<!-- Describe task in general -->
+
+<p>
+    Ти брокер з єдиним шансом придбати акції та продати акції. Маючи масив цін, вибери найкращий час для придбання акцій та продажу акцій, щоб максимально збільшити прибуток.
+</p>
+
+<!-- Explain input and output values -->
+<p>
+    <strong>Вхідні дані:</strong> {% if is_js %}Масив{% else %}Список{% endif %} цілих чисел. Ціна на акції.
+</p>
+
+<p>
+    <strong>Вихідні дані:</strong> Ціле число. Максимально можливий прибуток.
+</p>
+
+
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Приклади:</strong>
+    </p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>Передумови:</strong>
+    <ul>
+        <li><i>твій прибуток дорівнює нулю, коли взагалі неможливо отримати прибуток;</i></li>
+        <li><i>розмір масиву цін не може бути менше 2;</i></li>
+        <li><i>“коротка позиція (купівля в шорт)” (спочатку продай, потім викупи) на цьому ринку заборонена;</i></li>
+        <li><i>0 <= ціна <= 1000.</i></li>
+    </ul>
+    
+</p>

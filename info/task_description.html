@@ -1,36 +1,32 @@
 <!-- Describe task in general -->
-
 <p>
-    You are a broker with a single chance to buy stock and sell stock. Having an array of prices, pick the best time to buy stock and sell stock to maximize the profit.
+    You are a broker on the stock exchange. You've decided to make just one complete operation: to buy a stock and sell it later to make a profit. “Short-selling” (sell first, buy later) is not allowed in this market.
 </p>
-
+<p>
+    Buying and selling prices for every distinct moment are the same (in every moment you may either by a stock for price <b class="code">x</b> or sell a stock (if you have it) for the same price <b class="code">x</b>) and are shown in the given {% if is_js %}array{% else %}list{% endif %} <b class="code">stock</b>.
+</p>
+<p>
+    So, you have to choose, what are the best prices to buy a stock and later sell it to make the maximum profit from the operation. Your function must return this maximum possible profit. If it's not possible to make any profit with given prices (it's <= 0), your function should return 0.
+</p>
 <!-- Explain input and output values -->
 <p>
-    <strong>Input:</strong> {% if is_js %}Array of numbers{% else %}List of integers{% endif %}. Stock prices.
+    <strong>Input:</strong> Stock prices as {% if is_js %}array of Numbers{% else %}list of integers{% endif %}.
 </p>
-
 <p>
-    <strong>Output:</strong> {% if is_js %}Number{% else %}Integer{% endif %}. Maximum possible profit.
+    <strong>Output:</strong> Maximum possible profit as {% if is_js %}Number{% else %}integer{% endif %}.
 </p>
-
-
 <!-- Give some usage examples -->
 <div class="for_info_only">
     <p>
         <strong>Examples:</strong>
     </p>
-
 <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
-
-
 <!-- Here you can explain some constraints for input-->
 <!-- The section is optional -->
 <p>
     <strong>Preconditions:</strong>
     <ul>
-        <li><i>your profit is zero when it is impossible to get profit at all;</i></li>
-        <li><i>the size of pricing can't be less than 2;</i></li>
-        <li><i>“short-selling” (sell first, buy later) is not allowed in this market;</i></li>
+        <li><i>len(stock) > 1;</i></li>
         <li><i>0 <= price <= 1000.</i></li>
     </ul>
 </p>

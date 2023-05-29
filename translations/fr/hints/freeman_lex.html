@@ -1,0 +1,171 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>Je n'ai aucune idée de la manière de commencer à résoudre cette mission.</p>
+    </div>
+    <div class="answer">
+        <p>
+            💡 L'idée est la suivante: calculer tous les bénéfices que vous pourriez faire avec les données de la liste et prendre le plus grand en les comparant. Chaque prix, sauf le dernier, doit être considéré comme un prix d'achat (si vous achetez au dernier prix, vous ne pouvez pas vendre). Pour chaque prix d'achat particulier, tous les prix suivants doivent être considérés comme des prix de vente.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Ok, par quoi dois-je commencer?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Définissons la variable <b class="code">prof</b> pour le plus grand profit possible avec la valeur initiale <b class="code">0</b>. Votre fonction doit la renvoyer à la fin.
+        </p>
+        <p>
+            Vous avez également besoin du nombre de prix dans la liste <b class="code">stock</b>. Trouvez la longueur de la liste avec sa fonction <a target="_blank" href="https://www.w3schools.com/python/gloss_python_list_length.asp">len()</a>.
+        </p>
+        <pre class="brush: python">
+prof = 0
+l = len(stock)
+...
+...
+...
+return prof
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Après ces préparatifs, que faire ensuite?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Vous devez vérifier que chaque prix est un prix d'achat, sauf le dernier. Pour obtenir le prix plus tard par son index <b class="code">b_ind</b> dans le <b class="code">stock</b>, vous devez itérer sur les index, en utilisant <a target="_blank" href="https://www.w3schools.com/python/python_for_loops.asp">for loop</a>. 
+        </p>
+        <pre class="brush: python">
+prof = 0
+l = len(stock)
+for b_ind in ...
+...
+...
+return prof
+        </pre>
+        <p>
+            Pour générer ces index, utilisez la fonction intégrée <a target="_blank" href="https://www.w3schools.com/python/ref_func_range.asp">range()</a> avec la position d'arrêt <b class="code">l - 1</b>, puisque vous n'avez pas besoin que le dernier prix soit utilisé comme prix d'achat. 
+        </p>
+        <pre class="brush: python">
+prof = 0
+l = len(stock)
+for b_ind in range(l - 1):
+...
+...
+return prof    
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Comment obtenir le prix de vente?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Pour générer les indices <b class="code">s_ind</b> pour le prix de vente, vous avez également besoin de la boucle <b class="code">for</b> avec la fonction <b class="code">range()</b>. Cette opération doit être effectuée pour chaque indice de prix d'achat <b class="code">b_ind</b>, utilisez donc une boucle imbriquée.  Le début de la fourchette doit se situer après le cours actuel <b class="code">b_ind</b>, car vous ne pouvez vendre qu'après avoir acheté. La fin de la fourchette correspond au dernier indice.
+        </p>
+        <pre class="brush: python">
+prof = 0
+l = len(stock)
+for b_ind in range(l - 1):
+    for s_ind in range(b_ind + 1, l):
+...
+return prof    
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ok, comment trouver le profit actuel et le comparer à la valeur de <b class="code">prof</b>?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Evidemment, le profit est la différence entre le prix de vente et le prix d'achat. Et vous avez déjà des indices pour obtenir ces prix pour <b class="code">stock</b>. 
+        </p>
+        <pre class="brush: python">
+stock[s_ind] - stock[b_ind]
+        </pre>
+        <p>
+            Pour mettre à jour la variable <b class="code">prof</b> avec le bénéfice le plus élevé, vous pouvez utiliser la fonction intégrée <a target="_blank" href="https://www.w3schools.com/python/ref_func_max.asp">max()</a> avec la valeur stockée <b class="code">prof</b> et le bénéfice calculé actuel.
+        </p>
+        <pre class="brush: python">
+prof = max(prof, stock[s_ind] - stock[b_ind])
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Alors, à quoi devrait ressembler ma solution finale?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Il vous suffit d'envelopper votre code dans une expression de fonction et d'utiliser l'expression de mise à jour de la variable à l'intérieur de la deuxième boucle.
+        </p>
+        <p>Voici la solution complète:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def stock_profit(stock: list[int]) -> int:
+
+    prof = 0
+    l = len(stock)
+    for b_ind in range(l - 1):
+        for s_ind in range(b_ind + 1, l):
+            prof = max(prof, stock[s_ind] - stock[b_ind])
+
+    return prof
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Montrez-moi d'autres solutions!<br />
+        parce que je veux être une vraie 🥇 Python Ninnjaa!</p>
+    </div>
+    <div class="answer">
+        <p>Bien sûr, prenez-le!</p>
+        <p>
+            Dans cette solution, une seule boucle est utilisée. C'est parce qu'à l'intérieur de la boucle vous mettez à jour non seulement le profit, mais aussi le prix minimum actuel (qui est votre prix d'achat).
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def stock_profit(stock: list[int]) -> int:
+
+    prof = 0
+    minimum = stock[0]
+    for price in stock:
+        prof = max(prof, price - minimum)
+        minimum = min(price, minimum)
+
+    return prof
+        </pre>
+        </div>
+        <p>
+            Il s'agit d'une solution en une ligne, dans laquelle l'expression <b class="code">lambda</b> (fonction anonyme) est utilisée. Dans la fonction <b class="code">max()</b>, vous calculez chaque profit comme la différence entre le prix actuel et le minimum de tous les prix précédents.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+stock_profit = lambda s: max([s[i] - min(s[:i]) for i in range(1, len(s))] + [0])
+        </pre>
+        </div>
+        <p><b>Click "Best solutions" at mission menu and see a lot of other interesting solutions!</b></p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Merci beaucoup! Je comprends mieux maintenant! Tout fonctionne bien!</p>
+    </div>
+    <div class="answer">
+        👍 Heureux de l'apprendre!
+    </div>
+</div>
+</body>

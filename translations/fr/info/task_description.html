@@ -1,0 +1,35 @@
+<!-- Describe task in general -->
+<div class="story">
+<p>
+    Vous êtes courtier en bourse. Vous avez décidé de ne faire qu'une seule opération complète: acheter une action et la revendre plus tard pour réaliser un bénéfice.
+</p>
+</div>
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}buy_sell.png" alt="example" style="max-height: 300px; max-width: 100%;"/>
+</p>
+
+<p>
+    Votre fonction doit retourner ce profit maximum possible pour des fluctuations de prix données. S'il n'est pas possible de réaliser un bénéfice avec les prix donnés (il est &lt;= 0), votre fonction doit renvoyer 0.
+</p>
+<!-- Explain input and output values -->
+<p>
+   <strong>Données d'entrée:</strong> Cours des actions sous la forme {% if is_js %}d'un <span>tableau</span> <span>(array)</span> de <span>nombres</span> <span>(numbers)</span>{% else %} d'une <span>liste</span> <span>(list)</span> d'<span>entiers</span> <span>(integers)</span>{% endif %}.
+</p>
+<p>
+   <strong>Sortie:</strong> Profit maximum possible sous la forme {% if is_js %}d'un <span>nombre</span> <span>(number)</span>{% else %} d'un <span>entier</span> <span>(integer)</span>{% endif %}.
+</p>
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Exemples:</strong>
+    </p>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>Conditions préalables:</strong>
+    <ul>
+        <li><i>len(stock) &gt; 1;</i></li>
+        <li><i>0 &lt;= prix &lt;= 1000.</i></li>
+    </ul>
+</p>

@@ -1,0 +1,171 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>Nie mam pojęcia, jak zacząć rozwiązywać tę misję.</p>
+    </div>
+    <div class="answer">
+        <p>
+            💡 Pomysł jest następujący: proszę obliczyć każdy zysk, jaki można osiągnąć z danymi z listy i wybrać największy, porównując je. Każda cena z wyjątkiem ostatniej powinna być sprawdzona jako cena kupna (jeśli kupisz z ostatnią ceną, nie możesz sprzedać). Dla każdej konkretnej ceny kupna, każda cena po niej powinna być sprawdzona jako cena sprzedaży.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Ok, od czego powinienem zacząć?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Zdefiniujmy zmienną <b class="code">prof</b> dla największego możliwego zysku z wartością początkową <b class="code">0</b>. Pana funkcja powinna ją zwrócić na końcu.
+        </p>
+        <p>
+            Potrzebna jest również liczba cen na liście <b class="code">stock</b>. Proszę znaleźć długość listy za pomocą funkcji <a target="_blank" href="https://www.w3schools.com/python/gloss_python_list_length.asp">len()</a>.
+        </p>
+        <pre class="brush: python">
+prof = 0
+l = len(stock)
+...
+...
+...
+return prof
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Po tych przygotowaniach, co robić dalej?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Proszę sprawdzić każdą cenę jako cenę kupna, z wyjątkiem ostatniej. Aby później uzyskać cenę według jej indeksu <b class="code">b_ind</b> w <b class="code">stock</b>, należy iterować po indeksach, używając <a target="_blank" href="https://www.w3schools.com/python/python_for_loops.asp">for loop</a>. 
+        </p>
+        <pre class="brush: python">
+prof = 0
+l = len(stock)
+for b_ind in ...
+...
+...
+return prof
+        </pre>
+        <p>
+            Aby wygenerować te indeksy, należy użyć wbudowanej funkcji <a target="_blank" href="https://www.w3schools.com/python/ref_func_range.asp">range()</a> z pozycją stop jako <b class="code">l - 1</b>, ponieważ nie potrzebują Państwo ostatniej ceny jako ceny kupna. 
+        </p>
+        <pre class="brush: python">
+prof = 0
+l = len(stock)
+for b_ind in range(l - 1):
+...
+...
+return prof    
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Jak uzyskać cenę sprzedaży?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Aby wygenerować indeksy <b class="code">s_ind</b> dla ceny sprzedaży, potrzebują Państwo również pętli <b class="code">for</b> z funkcją <b class="code">range()</b>. Należy to zrobić dla każdego indeksu ceny kupna <b class="code">b_ind</b>, więc proszę użyć pętli zagnieżdżonej.  Początek zakresu powinien być następny po bieżącym <b class="code">b_ind</b>, ponieważ może Pan sprzedawać tylko po zakupie. Koniec zakresu w ostatnim indeksie.
+        </p>
+        <pre class="brush: python">
+prof = 0
+l = len(stock)
+for b_ind in range(l - 1):
+    for s_ind in range(b_ind + 1, l):
+...
+return prof    
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ok, jak znaleźć aktualny zysk i porównać go z wartością <b class="code">prof</b>?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Oczywiście zysk jest różnicą między ceną sprzedaży a ceną kupna. I ma Pan już indeksy, aby uzyskać te ceny dla <b class="code">stock</b>. 
+        </p>
+        <pre class="brush: python">
+stock[s_ind] - stock[b_ind]
+        </pre>
+        <p>
+            Aby zaktualizować zmienną <b class="code">prof</b> o większy zysk, można użyć wbudowanej funkcji <a target="_blank" href="https://www.w3schools.com/python/ref_func_max.asp">max()</a> z zapisaną wartością <b class="code">prof</b> i bieżącym obliczonym zyskiem.
+        </p>
+        <pre class="brush: python">
+prof = max(prof, stock[s_ind] - stock[b_ind])
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Jak więc powinno wyglądać moje ostateczne rozwiązanie?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Wystarczy zawinąć kod w wyrażenie funkcji i użyć wyrażenia aktualizacji zmiennej wewnątrz drugiej pętli.
+        </p>
+        <p>Oto całe rozwiązanie:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def stock_profit(stock: list[int]) -> int:
+
+    prof = 0
+    l = len(stock)
+    for b_ind in range(l - 1):
+        for s_ind in range(b_ind + 1, l):
+            prof = max(prof, stock[s_ind] - stock[b_ind])
+
+    return prof
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Proszę pokazać mi więcej rozwiązań!<br />
+        bo chcę być prawdziwym 🥇 Python Ninnjaa!</p>
+    </div>
+    <div class="answer">
+        <p>Jasne, proszę łapać!</p>
+        <p>
+            W tym rozwiązaniu używana jest tylko jedna pętla. Dzieje się tak dlatego, że wewnątrz pętli aktualizowany jest nie tylko zysk, ale także bieżąca cena minimalna (która jest ceną kupna).
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def stock_profit(stock: list[int]) -> int:
+
+    prof = 0
+    minimum = stock[0]
+    for price in stock:
+        prof = max(prof, price - minimum)
+        minimum = min(price, minimum)
+
+    return prof
+        </pre>
+        </div>
+        <p>
+            Jest to rozwiązanie jednowierszowe, w którym używane jest wyrażenie <b class="code">lambda</b> (funkcja anonimowa). Wewnątrz funkcji <b class="code">max()</b> obliczają Państwo każdy zysk jako różnicę między bieżącą ceną a minimum wszystkich poprzednich cen.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+stock_profit = lambda s: max([s[i] - min(s[:i]) for i in range(1, len(s))] + [0])
+        </pre>
+        </div>
+        <p>Proszę kliknąć <b>Best Solutions</b> w menu misji i zobaczyć wiele innych ciekawych rozwiązań!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Dzięki! Teraz wiem i rozumiem więcej! Wszystko działa jak należy!</p>
+    </div>
+    <div class="answer">
+        miło mi to słyszeć!
+    </div>
+</div>
+</body>

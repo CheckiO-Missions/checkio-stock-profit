@@ -1,0 +1,171 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>我不知道如何开始解决这项任务。</p>
+    </div>
+    <div class="answer">
+        <p>
+            💡这个想法如下：计算您可以通过列表数据获得的每一笔利润，并通过比较它们获得最大利润。除了最后一个价格外，每个价格都应检查为买入价（如果您以最后一个价格买入，则不能卖出）。对于每一个特定的买入价，其后的每一个价格都应作为卖出价。
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>好吧，我应该从什么开始？</p>
+    </div>
+    <div class="answer">
+        <p>
+            让我们定义一个变量<b class="code">prof</b> ，它的初始值为<b class="code">0</b> 。您的函数应该在最后返回它。
+        </p>
+        <p>
+            您还需要<b class="code">stock</b> 中的价格数。用<a target="_blank" href="https://www.w3schools.com/python/gloss_python_list_length.asp">len()</a> 函数求出列表的长度。
+        </p>
+        <pre class="brush: python">
+prof = 0
+l = len(stock)
+...
+...
+...
+return prof
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            做完这些准备工作后，下一步该做什么？
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            您需要检查每一个价格作为买入价，除了最后一个。要通过<b class="code">stock</b> 中的索引<b class="code">b_ind</b> 来获取后面的价格，您应该使用<a target="_blank" href="https://www.w3schools.com/python/python_for_loops.asp">for loop</a> 来遍历索引。  
+        </p>
+        <pre class="brush: python">
+prof = 0
+l = len(stock)
+for b_ind in ...
+...
+...
+return prof
+        </pre>
+        <p>
+            要生成这些指数，使用内置的<a target="_blank" href="https://www.w3schools.com/python/ref_func_range.asp">range()</a> 函数，停止位置为<b class="code">l - 1</b> ，因为您不需要最后一个价格作为买价。 
+        </p>
+        <pre class="brush: python">
+prof = 0
+l = len(stock)
+for b_ind in range(l - 1):
+...
+...
+return prof    
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            如何获得卖出价？
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            要生成<b class="code">s_ind</b> 卖价指数，您还需要使用<b class="code">range()</b> 函数进行<b class="code">for</b> 循环。每个买入价格指数<b class="code">b_ind</b> ，因此使用嵌套循环。  范围的起点应该是当前<b class="code">b_ind</b> 后的下一个，因为您可能在买入后才卖出。范围的结束在最后一个指数。
+        </p>
+        <pre class="brush: python">
+prof = 0
+l = len(stock)
+for b_ind in range(l - 1):
+    for s_ind in range(b_ind + 1, l):
+...
+return prof    
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            好的，如何找到当前利润并将其与<b class="code">prof</b> 的值进行比较？
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            显然，利润是卖出价和买入价之间的差额。而您已经有了指数来获得这些价格，<b class="code">stock</b> 。 
+        </p>
+        <pre class="brush: python">
+stock[s_ind] - stock[b_ind]
+        </pre>
+        <p>
+            为了用更大的利润更新变量<b class="code">prof</b> ，您可以使用内置的<a target="_blank" href="https://www.w3schools.com/python/ref_func_max.asp">max()</a> 函数，使用存储的<b class="code">prof</b> 值和当前计算的利润。
+        </p>
+        <pre class="brush: python">
+prof = max(prof, stock[s_ind] - stock[b_ind])
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>那么，我的最终解决方案应该是怎样的呢？</p>
+    </div>
+    <div class="answer">
+        <p>
+            您只需将代码封装为函数表达式，并在第二个循环中使用变量更新表达式。
+        </p>
+        <p>这就是整个解决方案：</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def stock_profit(stock: list[int]) -> int:
+
+    prof = 0
+    l = len(stock)
+    for b_ind in range(l - 1):
+        for s_ind in range(b_ind + 1, l):
+            prof = max(prof, stock[s_ind] - stock[b_ind])
+
+    return prof
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>告诉我更多的解决方案！<br />
+        因为我想成为一个真正的 🥇 Python Ninnjaa！</p>
+    </div>
+    <div class="answer">
+        <p>当然，抓住它！</p>
+        <p>
+            在这个解决方案中只使用了一个循环。这是因为在循环中，你不仅要更新利润，还要更新当前的最低价格（也就是你的买入价）。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def stock_profit(stock: list[int]) -> int:
+
+    prof = 0
+    minimum = stock[0]
+    for price in stock:
+        prof = max(prof, price - minimum)
+        minimum = min(price, minimum)
+
+    return prof
+        </pre>
+        </div>
+        <p>
+            这个是单行解决方案，使用<b class="code">lambda</b> 表达式（匿名函数）。在<b class="code">max()</b> 函数中，您将计算每笔利润，即当前价格与之前所有价格的最小值之差。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+stock_profit = lambda s: max([s[i] - min(s[:i]) for i in range(1, len(s))] + [0])
+        </pre>
+        </div>
+        <p>在任务菜单中点击<b>Best Solutions</b> ，可以看到很多其他有趣的解决方案！</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>谢谢！我现在知道并理解得更多了！一切正常！</p>
+    </div>
+    <div class="answer">
+        很高兴听到这个消息！
+    </div>
+</div>
+</body>

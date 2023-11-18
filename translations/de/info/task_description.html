@@ -1,15 +1,21 @@
 <!-- Describe task in general -->
 <div class="story">
 <p>
-    Sie sind Makler an der Börse. Sie haben beschlossen, nur eine einzige vollständige Operation durchzuführen: eine Aktie zu kaufen und sie später zu verkaufen, um einen Gewinn zu erzielen.
+    Als Börsenmakler, der sich auf eine einzelne Transaktion konzentriert, versuchen Sie, Ihren Gewinn zu maximieren, indem Sie eine Aktie zu einem niedrigeren Preis kaufen und sie später zu einem höheren Preis innerhalb eines bestimmten Zeitraums verkaufen.
 </p>
 </div>
 <p style="text-align: center;">
     <img src="{{MEDIA_CONVERT}}title.png" class="title_img" />
 </p>
 
-<p>
-    Ihre Funktion muss diesen maximal möglichen Gewinn für gegebene Kursschwankungen zurückgeben. Wenn es nicht möglich ist, bei den gegebenen Preisen einen Gewinn zu erzielen (er ist &lt;= 0), sollte Ihre Funktion 0 zurückgeben.
+<p style="text-align: justify;">
+    Ihre Funktion muss die Kursschwankungen der Aktie im Laufe der Zeit analysieren. Sie sollte die profitabelste Gelegenheit ermitteln, indem sie den maximal möglichen Gewinn berechnet, der innerhalb dieser Schwankungen erzielt werden kann. Das bedeutet, dass Sie den höchsten Preis finden müssen, zu dem Sie die Aktie verkaufen können, nachdem Sie sie zum niedrigstmöglichen Preis gekauft haben.
+</p>
+<p style="text-align: justify;">
+    Wenn es jedoch keine Möglichkeit gibt, einen Gewinn zu erzielen - z.B. wenn der Aktienkurs konstant fällt oder gleich bleibt - sollte die Funktion den Wert Null zurückgeben, was bedeutet, dass es keine realistische Möglichkeit für eine profitable Transaktion gibt.
+</p>
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}stock-exchange-image2.svg" alt="example" style="max-height: 250px"/>
 </p>
 <!-- Explain input and output values -->
 <p>

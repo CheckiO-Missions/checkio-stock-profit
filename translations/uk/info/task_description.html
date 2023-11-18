@@ -1,34 +1,41 @@
 <!-- Describe task in general -->
 <div class="story">
-<p">
-    Ти брокер на фондовій біржі. Вирішив зробити лише одну повну операцію: придбати акцію та продати її пізніше, щоб отримати прибуток.
+<p>
+    Як біржовий брокер, що фокусується на одній угоді, ви прагнете максимізувати свій прибуток, купуючи акції за нижчою ціною і продаючи їх пізніше за вищою ціною протягом певного періоду.
 </p>
 </div>
 <p style="text-align: center;">
     <img src="{{MEDIA_CONVERT}}title.png" class="title_img" />
 </p>
-<p>
-    Твоя функція повинна повернути цей максимально можливий прибуток для переданих коливань ціни. Якщо неможливо отримати прибуток із заданими цінами (він <= 0), твоя функція повинна повернути 0.
+
+<p style="text-align: justify;">
+    Ваша функція полягає в тому, щоб аналізувати коливання цін на акції з плином часу. Вона повинна визначити найбільш вигідну можливість, розрахувавши максимальний потенційний прибуток, який можна отримати в межах цих коливань. Це означає пошук найвищої ціни для продажу акцій після їх купівлі за найнижчою можливою ціною.
+</p>
+<p style="text-align: justify;">
+    Однак, якщо немає можливості отримати прибуток - наприклад, коли ціна акції постійно знижується або залишається незмінною - функція повинна повернути нуль, що вказує на відсутність реальної можливості для прибуткової транзакції.
+</p>
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}stock-exchange-image2.svg" alt="example" style="max-height: 250px"/>
 </p>
 <!-- Explain input and output values -->
 <p>
-    <strong>Вхідні дані:</strong> Ціна акції як {% if is_js %}масив{% else %}список{% endif %} цілих чисел.
+   <strong>Вхідні дані:</strong> Ціни на акції у вигляді масиву {% if is_js %}масив{% else %}список{% endif %} <span>({% if is_js %}array{% else %}list{% endif %})</span> цілих чисел <span>{% if is_js %}(number){% else %}(int){% endif %}</span>.
 </p>
 <p>
-    <strong>Вихідні дані:</strong> Максимально можливий прибуток як ціле число.
+   <strong>Вивести:</strong> Максимально можливий прибуток як ціле число <span>{% if is_js %}(number){% else %}(int){% endif %}</span>.
 </p>
 <!-- Give some usage examples -->
 <div class="for_info_only">
     <p>
         <strong>Приклади:</strong>
     </p>
-    <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 <!-- Here you can explain some constraints for input-->
 <!-- The section is optional -->
 <p>
     <strong>Передумови:</strong>
     <ul>
-        <li><i>len(stock) > 1;</i></li>
-        <li><i>0 <= ціна <= 1000.</i></li>
+        <li><i>len(stock) &gt; 1;</i></li>
+        <li><i>0 &lt;= price &lt;= 1000.</i></li>
     </ul>
 </p>

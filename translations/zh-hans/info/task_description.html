@@ -1,15 +1,21 @@
 <!-- Describe task in general -->
 <div class="story">
 <p>
-    您是证券交易所的经纪人。您决定只进行一次完整的操作：买入一只股票，然后卖出获利。
+    作为一名专注于单笔交易的证券交易经纪人，您的目标是在一定时期内以较低价格买入股票，随后以较高价格卖出，从而实现利润最大化。
 </p>
 </div>
 <p style="text-align: center;">
     <img src="{{MEDIA_CONVERT}}title.png" class="title_img" />
 </p>
 
-<p>
-    您的函数必须返回给定价格波动下的最大可能利润。如果在给定的价格下不可能获得任何利润（&lt;= 0），您的函数应该返回 0。
+<p style="text-align: justify;">
+    您的功能需要分析股票在一段时间内的价格波动。它应通过计算在这些波动范围内可实现的最大潜在利润来确定最有利可图的机会。这意味着在以最低价格买入股票后，要找到卖出股票的最高价格。
+</p>
+<p style="text-align: justify;">
+    但是，如果没有获利的可能，比如股价持续下跌或保持不变，函数就应该返回零，表明没有可行的获利交易机会。
+</p>
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}stock-exchange-image2.svg" alt="example" style="max-height: 250px"/>
 </p>
 <!-- Explain input and output values -->
 <p>
@@ -21,7 +27,7 @@
 <!-- Give some usage examples -->
 <div class="for_info_only">
     <p>
-        <strong>例子：</strong>
+        <strong>举例说明</strong>
     </p>
 <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 <!-- Here you can explain some constraints for input-->
@@ -30,6 +36,6 @@
     <strong>前提条件：</strong>
     <ul>
         <li><i>len(stock) &gt; 1；</i></li>
-        <li><i>0 &lt;= 价格 &lt;= 1000.</i></li>
+        <li><i>0 &lt;= 价格 &lt;= 1000。</i></li>
     </ul>
 </p>

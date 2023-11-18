@@ -1,15 +1,21 @@
 <!-- Describe task in general -->
 <div class="story">
 <p>
-    Jest Pan/Pani maklerem giełdowym. Zdecydował się Pan wykonać tylko jedną kompletną operację: kupić akcje i sprzedać je później, aby osiągnąć zysk.
+    Jako makler giełdowy skupiający się na pojedynczej transakcji, dąży Pan/Pani do maksymalizacji zysku poprzez zakup akcji po niższej cenie i ich późniejszą sprzedaż po wyższej cenie w danym okresie.
 </p>
 </div>
 <p style="text-align: center;">
     <img src="{{MEDIA_CONVERT}}title.png" class="title_img" />
 </p>
 
-<p>
-    Pana funkcja musi zwrócić maksymalny możliwy zysk przy danych wahaniach cen. Jeśli nie jest możliwe osiągnięcie żadnego zysku przy danych cenach (jest &lt;= 0), funkcja powinna zwrócić 0.
+<p style="text-align: justify;">
+    Państwa funkcja musi analizować wahania cen akcji w czasie. Powinna ona zidentyfikować najbardziej opłacalną okazję, obliczając maksymalny potencjalny zysk możliwy do osiągnięcia w ramach tych wahań. Oznacza to znalezienie najwyższej ceny sprzedaży akcji po ich zakupie po najniższej możliwej cenie.
+</p>
+<p style="text-align: justify;">
+    Jeśli jednak nie ma możliwości osiągnięcia zysku - na przykład gdy cena akcji konsekwentnie spada lub pozostaje taka sama - funkcja powinna zwracać zero, wskazując, że nie ma realnej możliwości zawarcia zyskownej transakcji.
+</p>
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}stock-exchange-image2.svg" alt="example" style="max-height: 250px"/>
 </p>
 <!-- Explain input and output values -->
 <p>

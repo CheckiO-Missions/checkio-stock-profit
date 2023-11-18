@@ -1,22 +1,28 @@
 <!-- Describe task in general -->
 <div class="story">
 <p>
-    Vous êtes courtier en bourse. Vous avez décidé de ne faire qu'une seule opération complète: acheter une action et la revendre plus tard pour réaliser un bénéfice.
+    En tant que courtier en bourse se concentrant sur une seule transaction, vous cherchez à maximiser votre profit en achetant une action à un prix inférieur et en la revendant plus tard à un prix supérieur au cours d'une période donnée.
 </p>
 </div>
 <p style="text-align: center;">
     <img src="{{MEDIA_CONVERT}}title.png" class="title_img" />
 </p>
 
-<p>
-    Votre fonction doit retourner ce profit maximum possible pour des fluctuations de prix données. S'il n'est pas possible de réaliser un bénéfice avec les prix donnés (il est &lt;= 0), votre fonction doit renvoyer 0.
+<p style="text-align: justify;">
+    Votre fonction doit analyser les fluctuations de prix de l'action au fil du temps. Elle doit identifier l'opportunité la plus rentable en calculant le bénéfice potentiel maximal réalisable dans le cadre de ces fluctuations. Cela signifie qu'il faut trouver le prix le plus élevé pour vendre l'action après l'avoir achetée au prix le plus bas possible.
+</p>
+<p style="text-align: justify;">
+    Toutefois, s'il n'y a aucune possibilité de réaliser un bénéfice, par exemple lorsque le prix de l'action diminue constamment ou reste inchangé, la fonction doit renvoyer zéro, ce qui indique qu'il n'y a pas d'opportunité viable pour une transaction rentable.
+</p>
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}stock-exchange-image2.svg" alt="example" style="max-height: 250px"/>
 </p>
 <!-- Explain input and output values -->
 <p>
-   <strong>Données d'entrée:</strong> Cours des actions sous la forme {% if is_js %}d'un <span>tableau</span> <span>(array)</span> de <span>nombres</span> <span>(numbers)</span>{% else %}d'une <span>liste</span> <span>(list)</span> d'<span>entiers</span> <span>(integers)</span>{% endif %}.
+   <strong>Données d'entrée:</strong> Prix des actions sous forme de {% if is_js %}tableau{% else %}liste{% endif %} <span>({% if is_js %}array{% else %}list{% endif %})</span> d'entiers <span>{% if is_js %}(number){% else %}(int){% endif %}</span>.
 </p>
 <p>
-   <strong>Sortie:</strong> Profit maximum possible sous la forme d'un {% if is_js %}<span>nombre</span> <span>(number)</span>{% else %}<span>entier</span> <span>(integer)</span>{% endif %}.
+   <strong>Résultat:</strong> Bénéfice maximal possible sous forme d'un nombre entier <span>{% if is_js %}(number){% else %}(int){% endif %}</span>.
 </p>
 <!-- Give some usage examples -->
 <div class="for_info_only">

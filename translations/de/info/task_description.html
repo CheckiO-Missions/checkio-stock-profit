@@ -1,0 +1,35 @@
+<!-- Describe task in general -->
+<div class="story">
+<p>
+    Sie sind Makler an der Börse. Sie haben beschlossen, nur eine einzige vollständige Operation durchzuführen: eine Aktie zu kaufen und sie später zu verkaufen, um einen Gewinn zu erzielen.
+</p>
+</div>
+<p style="text-align: center;">
+    <img src="{{MEDIA_CONVERT}}title.png" class="title_img" />
+</p>
+
+<p>
+    Ihre Funktion muss diesen maximal möglichen Gewinn für gegebene Kursschwankungen zurückgeben. Wenn es nicht möglich ist, bei den gegebenen Preisen einen Gewinn zu erzielen (er ist &lt;= 0), sollte Ihre Funktion 0 zurückgeben.
+</p>
+<!-- Explain input and output values -->
+<p>
+   <strong>Eingabe:</strong> Aktienkurse als {% if is_js %}Array{% else %}Liste{% endif %} <span>({% if is_js %}array{% else %}list{% endif %})</span> von ganzen Zahlen <span>{% if is_js %}(number){% else %}(int){% endif %}</span>.
+</p>
+<p>
+   <strong>Ausgabe:</strong> Maximal möglicher Gewinn als ganze Zahl <span>{% if is_js %}(number){% else %}(int){% endif %}</span>.
+</p>
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Beispiele:</strong>
+    </p>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>Vorbedingungen:</strong>
+    <ul>
+        <li><i>len(Aktie) &gt; 1;</i></li>
+        <li><i>0 &lt;= Preis &lt;= 1000.</i></li>
+    </ul>
+</p>

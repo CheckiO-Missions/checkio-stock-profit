@@ -15,16 +15,14 @@
     </div>
     <div class="answer">
         <p>
-            让我们定义初始值为<b class="code">0</b> 的变量<b class="code">prof</b> ，以获得最大可能的利润。您的函数应在最后返回该值。
+            让我们为结果（最大利润）定义变量<b class="code">prof</b> ，初始值为<b class="code">0</b> 。您的函数应在最后返回该值，因此我们也要编写<b class="code">return</b> 语句。
         </p>
         <p>
-            您还需要<b class="code">stock</b> 中的价格数。使用<a target="_blank" href="https://www.w3schools.com/python/gloss_python_list_length.asp">len()</a> 函数找出列表的长度。
+            您还需要在<b class="code">stock</b> 中输入可以买入或卖出的时刻数。它实际上是给定列表的长度，使用<a target="_blank" href="https://www.w3schools.com/python/gloss_python_list_length.asp">len()</a> 函数查找。
         </p>
         <pre class="brush: python">
 prof = 0
 l = len(stock)
-...
-...
 ...
 return prof
         </pre>
@@ -108,7 +106,7 @@ prof = max(prof, stock[s_ind] - stock[b_ind])
     </div>
     <div class="answer">
         <p>
-            您只需将代码封装为函数表达式，并在第二个循环中使用变量更新表达式即可。
+            您只需将代码封装为函数表达式，并在第二个循环中使用变量更新表达式。
         </p>
         <p>这就是整个解决方案：</p>
         <div class="spoiler">

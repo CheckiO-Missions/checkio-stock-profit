@@ -15,16 +15,14 @@
     </div>
     <div class="answer">
         <p>
-            Давайте визначимо змінну <b class="code">prof</b> для найбільшого можливого прибутку з початковим значенням <b class="code">0</b>. Ваша функція повинна повернути його в кінці.
+            Давайте визначимо змінну <b class="code">prof</b> для вашого результату (найбільшого прибутку) з початковим значенням <b class="code">0</b>. Ваша функція повинна повернути її в кінці, тому давайте вже напишемо <b class="code">return</b>.
         </p>
         <p>
-            Вам також потрібна кількість цін у списку <b class="code">stock</b>. Знайдіть довжину списку за допомогою функції <a target="_blank" href="https://www.w3schools.com/python/gloss_python_list_length.asp">len()</a>.
+            Вам також потрібна кількість моментів, коли ви можете купити або продати в <b class="code">stock</b>. Це фактично довжина заданого списку. Знайдіть її за допомогою функції <a target="_blank" href="https://www.w3schools.com/python/gloss_python_list_length.asp">len()</a>.
         </p>
         <pre class="brush: python">
 prof = 0
 l = len(stock)
-...
-...
 ...
 return prof
         </pre>
@@ -95,7 +93,7 @@ return prof
 stock[s_ind] - stock[b_ind]
         </pre>
         <p>
-            Щоб оновити змінну <b class="code">prof</b> на більший прибуток, ви можете скористатися вбудованою функцією <a target="_blank" href="https://www.w3schools.com/python/ref_func_max.asp">max()</a> зі збереженим значенням <b class="code">prof</b> і поточним розрахованим прибутком.
+            Щоб оновити змінну <b class="code">prof</b> більшим прибутком, ви можете скористатися вбудованою функцією <a target="_blank" href="https://www.w3schools.com/python/ref_func_max.asp">max()</a> зі збереженим значенням <b class="code">prof</b> і поточним розрахованим прибутком.
         </p>
         <pre class="brush: python">
 prof = max(prof, stock[s_ind] - stock[b_ind])

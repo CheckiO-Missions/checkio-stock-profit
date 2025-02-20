@@ -39,3 +39,5 @@ nosetests.xml
 __VERSION__.py
 
 __pycache__
+
+.vscode
